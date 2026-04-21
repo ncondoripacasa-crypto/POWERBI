@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BI Tools Analytics | Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-pattern {
+            background-color: #0f172a;
+            background-image: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <i data-feather="bar-chart-2" class="text-blue-400"></i>
+                    <span class="font-bold text-xl tracking-tight">BI Analytics</span>
+                </div>
+                <div class="hidden md:block">
+                    <a href="https://github.com/tu-usuario/tu-repo" class="text-gray-300 hover:text-white transition px-3 py-2 rounded-md text-sm font-medium">GitHub Repo</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="hero-pattern min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm text-blue-300 mb-8 animate-bounce">
+                <i data-feather="database" class="w-4 h-4"></i>
+                Dataset impulsado por Kaggle
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
+                Visualización de Datos BI
+            </h1>
+            <p class="mt-4 max-w-2xl text-xl text-slate-300 mx-auto mb-10">
+                Explora, filtra y analiza el ecosistema de herramientas de Inteligencia de Negocios a través de un dashboard interactivo construido con Streamlit y Python.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://tu-app-streamlit.streamlit.app" target="_blank" class="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:-translate-y-1">
+                    <i data-feather="play"></i>
+                    Abrir Dashboard
+                </a>
+                <a href="#features" class="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-xl text-slate-200 glass-card hover:bg-white/10 transition-all">
+                    Ver Características
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">Potenciado por Tecnologías Modernas</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 text-blue-400">
+                        <i data-feather="layout" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Streamlit</h3>
+                    <p class="text-slate-400">Interfaz de usuario interactiva y fluida, construida enteramente con Python para análisis de datos en tiempo real.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400">
+                        <i data-feather="pie-chart" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Gráficos Avanzados</h3>
+                    <p class="text-slate-400">Visualizaciones enriquecidas y tarjetas de métricas para entender el impacto de las herramientas BI.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center mb-6 text-purple-400">
+                        <i data-feather="book-open" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Jupyter Notebooks</h3>
+                    <p class="text-slate-400">El insumo principal del proyecto incluye un análisis exploratorio detallado del dataset de Kaggle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500">
+            <p>© 2026 BI Tools Analytics. Proyecto de análisis de datos.</p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
