@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende Excel desde Cero - Nivel Pro</title>
+    <meta name="description" content="Plataforma interactiva y gamificada para aprender Microsoft Excel desde cero.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <span class="icon">📊</span>
+            <h1>ExcelPro</h1>
+        </div>
+        <div class="gamification-hud">
+            <div class="xp-container">
+                <span class="xp-icon">⭐</span>
+                <span id="xp-counter">0 XP</span>
+            </div>
+            <div class="badges-container" id="badges-container">
+                <!-- Badges will be injected here -->
+            </div>
+            <button id="btn-reset" class="btn-secondary btn-small">Reiniciar Progreso</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Landing Page Section -->
+        <section id="landing-page" class="view active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>Domina Excel como un <span class="highlight">Profesional</span></h2>
+                    <p>Aprende paso a paso con 10 lecciones interactivas, gana puntos y desbloquea niveles. ¡Desde lo más básico hasta atajos avanzados!</p>
+                    <button id="btn-start" class="btn-primary btn-large">¡Comenzar a Aprender!</button>
+                </div>
+                <div class="hero-image">
+                    <div class="excel-mockup">
+                        <div class="mockup-header">Libro1 - Excel</div>
+                        <div class="mockup-cells">
+                            <div class="cell header">A</div><div class="cell header">B</div><div class="cell header">C</div>
+                            <div class="cell">1</div><div class="cell">Datos</div><div class="cell">100</div>
+                            <div class="cell">2</div><div class="cell">Suma</div><div class="cell highlight-cell">=SUMA(C1:C2)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="level-map">
+                <h3>Tu Ruta de Aprendizaje (10 Lecciones)</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="overall-progress"></div>
+                </div>
+                <div class="levels-grid" id="levels-grid">
+                    <!-- Level cards will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Level Section -->
+        <section id="level-page" class="view hidden">
+            <button id="btn-back" class="btn-text">← Volver al mapa</button>
+            <div class="level-container">
+                <div class="level-header">
+                    <h2 id="current-level-title">Nivel 1</h2>
+                    <span class="level-badge" id="current-level-badge">🏆</span>
+                </div>
+                
+                <!-- Paso 1: Teoría -->
+                <div id="theory-step" class="step-view active">
+                    <div class="theory-box" id="theory-content">
+                        <!-- Theory content injected here -->
+                    </div>
+                    <div class="step-actions">
+                        <button id="btn-go-practice" class="btn-primary btn-large step-transition-btn">
+                            ¡Entendido! Ir a la Práctica →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Paso 2: Práctica -->
+                <div id="practice-step" class="step-view hidden">
+                    <div class="practice-box">
+                        <div class="practice-header">
+                            <h3>¡Hora de practicar!</h3>
+                            <button id="btn-back-theory" class="btn-text btn-small">← Repasar Teoría</button>
+                        </div>
+                        <p id="practice-instruction">Instrucciones aquí</p>
+                        <div class="interactive-area" id="interactive-area">
+                            <!-- Practice inputs injected here -->
+                        </div>
+                        <div class="feedback hidden" id="feedback-message"></div>
+                        <button id="btn-submit" class="btn-primary">Verificar Respuesta</button>
+                        <button id="btn-next-level" class="btn-success hidden">Siguiente Lección →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desarrollado con ♥ para aprender Excel | Proyecto Educativo Gamificado</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
