@@ -1,81 +1,108 @@
-// Datos de los 10 niveles
+// Datos de las misiones (10 Reinos)
 const levelsData = [
     {
         id: 1,
-        title: "Lección 1: El Tablero de Juego",
-        badge: "🏁",
+        title: "Misión 1: El Tablero de Juego",
         theory: `
             <h3>Conceptos Básicos</h3>
-            <p>Excel es como un gran tablero de batalla naval llamado <strong>Hoja de Cálculo</strong>.</p>
+            <p>Todo Maestro de Excel debe conocer su campo de batalla: la <strong>Hoja de Cálculo</strong>.</p>
             <ul>
                 <li><strong>Columnas:</strong> Van de arriba a abajo y tienen letras (A, B, C...).</li>
                 <li><strong>Filas:</strong> Van de izquierda a derecha y tienen números (1, 2, 3...).</li>
-                <li><strong>Celdas:</strong> Son cada uno de los cuadritos. Su nombre es la letra de la columna más el número de la fila (Ejemplo: <code>A1</code>).</li>
+                <li><strong>Celdas:</strong> La intersección. Su nombre es Letra + Número (Ej: <code>C4</code>).</li>
             </ul>
         `,
-        instruction: "¿Cuál es el nombre correcto para la celda que está en la columna B y la fila 5?",
-        type: "radio",
-        options: [
-            { id: "opt1", text: "5B" },
-            { id: "opt2", text: "B5" },
-            { id: "opt3", text: "Columna B Fila 5" }
-        ],
-        correctAnswer: "opt2",
-        xpReward: 100
+        challenges: [
+            {
+                instruction: "¿Cuál es el nombre correcto para la celda en la columna B y fila 5?",
+                type: "radio",
+                options: [
+                    { id: "opt1", text: "5B" },
+                    { id: "opt2", text: "B5" },
+                    { id: "opt3", text: "Columna B Fila 5" }
+                ],
+                correctAnswer: "opt2",
+                xpReward: 50
+            },
+            {
+                instruction: "Demuestra tu precisión: Haz clic en la celda C4 en el simulador.",
+                type: "click_cell",
+                targetUI: "C4",
+                xpReward: 50
+            }
+        ]
     },
     {
         id: 2,
-        title: "Lección 2: Conociendo la Interfaz",
-        badge: "🖥️",
+        title: "Misión 2: Conociendo las Herramientas",
         theory: `
             <h3>¿Dónde está cada cosa?</h3>
-            <p>La pantalla de Excel tiene partes muy importantes:</p>
+            <p>La magia ocurre en dos lugares principales:</p>
             <ul>
-                <li><strong>Cinta de opciones:</strong> El menú principal arriba donde están todas las herramientas.</li>
-                <li><strong>Barra de fórmulas:</strong> Una barra blanca y larga arriba de las celdas donde puedes ver y editar lo que realmente contiene una celda seleccionada.</li>
+                <li><strong>Cinta de opciones (Ribbon):</strong> El menú principal arriba con pestañas como 'Inicio', 'Insertar'.</li>
+                <li><strong>Barra de fórmulas:</strong> Donde escribes y lees el código mágico (las fórmulas).</li>
+                <li><strong>Cuadro de nombres:</strong> Te dice en qué celda estás parado (ej. A1).</li>
             </ul>
         `,
-        instruction: "Si escribes una fórmula muy larga en una celda, ¿dónde es el mejor lugar para leerla y editarla cómodamente?",
-        type: "radio",
-        options: [
-            { id: "opt1", text: "En la Cinta de opciones" },
-            { id: "opt2", text: "En la Barra de fórmulas" },
-            { id: "opt3", text: "En la barra de estado inferior" }
-        ],
-        correctAnswer: "opt1", // wait, error in logic, correct is opt2
-        correctAnswer: "opt2",
-        xpReward: 100
+        challenges: [
+            {
+                instruction: "Haz clic en el 'Cuadro de Nombres' (donde dice A1) para identificarlo.",
+                type: "click_ui",
+                targetUI: "name-box",
+                xpReward: 50
+            },
+            {
+                instruction: "Ahora, haz clic en la 'Barra de fórmulas' (el espacio largo junto a fx).",
+                type: "click_ui",
+                targetUI: "formula-input",
+                xpReward: 50
+            },
+            {
+                instruction: "Selecciona la pestaña 'Fórmulas' en la cinta de opciones.",
+                type: "click_ui",
+                targetUI: "tab-formulas",
+                xpReward: 50
+            }
+        ]
     },
     {
         id: 3,
-        title: "Lección 3: Tipos de Datos",
-        badge: "🔤",
+        title: "Misión 3: Tipos de Datos",
         theory: `
             <h3>Textos vs. Números</h3>
-            <p>Excel trata los datos de manera diferente dependiendo de qué escribas:</p>
+            <p>Excel trata los datos según cómo los ingresas:</p>
             <ul>
-                <li><strong>Números:</strong> Se usan para matemáticas. Por defecto se alinean a la <em>derecha</em>.</li>
-                <li><strong>Textos:</strong> Letras o símbolos. Por defecto se alinean a la <em>izquierda</em>.</li>
+                <li><strong>Números:</strong> Se alinean a la <em>derecha</em> automáticamente.</li>
+                <li><strong>Textos:</strong> Se alinean a la <em>izquierda</em> automáticamente.</li>
             </ul>
-            <p>Si escribes un número de teléfono con espacios (Ej: <code>555 1234</code>), Excel lo tratará como texto, no podrás sumarlo.</p>
+            <p>Un número escrito como texto (ej: con espacios "100 00") no se puede sumar.</p>
         `,
-        instruction: "¿Cómo alinea Excel por defecto una palabra escrita en una celda?",
-        type: "radio",
-        options: [
-            { id: "opt1", text: "A la derecha" },
-            { id: "opt2", text: "Al centro" },
-            { id: "opt3", text: "A la izquierda" }
-        ],
-        correctAnswer: "opt3",
-        xpReward: 150
+        challenges: [
+            {
+                instruction: "¿Hacia qué lado se alinea automáticamente una palabra que escribes en una celda?",
+                type: "radio",
+                options: [
+                    { id: "opt1", text: "A la derecha" },
+                    { id: "opt2", text: "Al centro" },
+                    { id: "opt3", text: "A la izquierda" }
+                ],
+                correctAnswer: "opt3",
+                xpReward: 50
+            },
+            {
+                instruction: "Para aplicar negrita a un texto, haz clic en el botón 'B' del menú simulado.",
+                type: "click_ui",
+                targetUI: "btn-bold",
+                xpReward: 50
+            }
+        ]
     },
     {
         id: 4,
-        title: "Lección 4: Calculadora Básica",
-        badge: "➕",
+        title: "Misión 4: Calculadora Básica",
         theory: `
-            <h3>Tu primera fórmula</h3>
-            <p>Para hacer cálculos manuales, <strong>siempre</strong> debes empezar escribiendo el signo igual <code>=</code>.</p>
+            <h3>El Símbolo del Poder (=)</h3>
+            <p>Para hacer cálculos, <strong>siempre</strong> debes iniciar con el signo igual <code>=</code>.</p>
             <ul>
                 <li>Sumar: <code>+</code></li>
                 <li>Restar: <code>-</code></li>
@@ -84,35 +111,41 @@ const levelsData = [
             </ul>
             <p>Ejemplo: <code>=A1+B1</code></p>
         `,
-        instruction: "Escribe la fórmula exacta para multiplicar la celda A2 por la celda C2:",
-        type: "input",
-        placeholder: "Ej: =A1*B1",
-        correctAnswer: ["=A2*C2", "=C2*A2", "=a2*c2", "=c2*a2"],
-        xpReward: 200
+        challenges: [
+            {
+                instruction: "Escribe la fórmula exacta para multiplicar la celda A2 por la celda C2:",
+                type: "input",
+                placeholder: "Ej: =A1*B1",
+                correctAnswer: ["=A2*C2", "=C2*A2", "=a2*c2", "=c2*a2"],
+                xpReward: 100
+            }
+        ]
     },
     {
         id: 5,
-        title: "Lección 5: Funciones Esenciales",
-        badge: "🧮",
+        title: "Misión 5: Funciones Esenciales",
         theory: `
-            <h3>Ahorrando tiempo con Funciones</h3>
-            <p>Las funciones son fórmulas que Excel ya tiene programadas. Se usan con un <strong>rango</strong> (ej: <code>A1:A5</code> significa desde A1 hasta A5).</p>
+            <h3>Invocando Funciones</h3>
+            <p>Las funciones son hechizos preprogramados. Se aplican a un <strong>rango</strong> (ej: <code>A1:A5</code>).</p>
             <ul>
                 <li><code>=SUMA(rango)</code>: Suma todo.</li>
                 <li><code>=PROMEDIO(rango)</code>: Saca el promedio.</li>
                 <li><code>=MAX(rango)</code>: Encuentra el número más grande.</li>
             </ul>
         `,
-        instruction: "Escribe la función exacta para encontrar el valor MÁS GRANDE (máximo) en el rango desde C1 hasta C10:",
-        type: "input",
-        placeholder: "Ej: =SUMA(A1:A5)",
-        correctAnswer: ["=MAX(C1:C10)", "=max(c1:c10)"],
-        xpReward: 250
+        challenges: [
+            {
+                instruction: "Escribe la función exacta para encontrar el valor MÁS GRANDE (máximo) en el rango desde C1 hasta C10:",
+                type: "input",
+                placeholder: "Ej: =SUMA(A1:A5)",
+                correctAnswer: ["=MAX(C1:C10)", "=max(c1:c10)"],
+                xpReward: 100
+            }
+        ]
     },
     {
         id: 6,
-        title: "Lección 6: Contando Datos",
-        badge: "🔢",
+        title: "Misión 6: Contando Datos",
         theory: `
             <h3>CONTAR vs CONTARA</h3>
             <p>A veces necesitas saber cuántos elementos hay en una lista, no sumarlos.</p>
@@ -121,20 +154,23 @@ const levelsData = [
                 <li><code>=CONTARA(rango)</code>: Cuenta todas las celdas que <strong>no están vacías</strong> (textos, números, símbolos).</li>
             </ul>
         `,
-        instruction: "Si tienes una lista de 5 nombres de personas, ¿qué función usarías para contarlos?",
-        type: "radio",
-        options: [
-            { id: "opt1", text: "=CONTAR()" },
-            { id: "opt2", text: "=CONTARA()" },
-            { id: "opt3", text: "=SUMA()" }
-        ],
-        correctAnswer: "opt2",
-        xpReward: 250
+        challenges: [
+            {
+                instruction: "Si tienes una lista de 5 nombres de personas, ¿qué función usarías para contarlos?",
+                type: "radio",
+                options: [
+                    { id: "opt1", text: "=CONTAR()" },
+                    { id: "opt2", text: "=CONTARA()" },
+                    { id: "opt3", text: "=SUMA()" }
+                ],
+                correctAnswer: "opt2",
+                xpReward: 150
+            }
+        ]
     },
     {
         id: 7,
-        title: "Lección 7: Funciones Lógicas",
-        badge: "⚖️",
+        title: "Misión 7: Funciones Lógicas",
         theory: `
             <h3>Tomando decisiones con SI()</h3>
             <p>La función <code>=SI()</code> permite que Excel tome decisiones automáticas basada en una condición.</p>
@@ -142,36 +178,42 @@ const levelsData = [
             <p>Ejemplo: <code>=SI(A1>=60, "Aprobado", "Reprobado")</code></p>
             <p><em>Nota: Los textos siempre van entre comillas "".</em></p>
         `,
-        instruction: "Dada la fórmula =SI(B2>100, \"Caro\", \"Barato\"). Si B2 vale 50, ¿qué resultado dará Excel?",
-        type: "radio",
-        options: [
-            { id: "opt1", text: "Caro" },
-            { id: "opt2", text: "Barato" },
-            { id: "opt3", text: "Dará un error" }
-        ],
-        correctAnswer: "opt2",
-        xpReward: 300
+        challenges: [
+            {
+                instruction: "Dada la fórmula =SI(B2>100, \"Caro\", \"Barato\"). Si B2 vale 50, ¿qué resultado dará Excel?",
+                type: "radio",
+                options: [
+                    { id: "opt1", text: "Caro" },
+                    { id: "opt2", text: "Barato" },
+                    { id: "opt3", text: "Dará un error" }
+                ],
+                correctAnswer: "opt2",
+                xpReward: 200
+            }
+        ]
     },
     {
         id: 8,
-        title: "Lección 8: Manipulación de Textos",
-        badge: "📝",
+        title: "Misión 8: Manipulación de Textos",
         theory: `
             <h3>Uniendo Palabras</h3>
             <p>Excel también puede jugar con palabras. La función más común es unir dos textos que están separados.</p>
             <p><code>=CONCATENAR(texto1, texto2)</code></p>
             <p>Ejemplo: Si A1 es "Juan" y B1 es "Pérez", <code>=CONCATENAR(A1, B1)</code> da como resultado "JuanPérez".</p>
         `,
-        instruction: "Escribe la función exacta para concatenar las celdas A5 y B5:",
-        type: "input",
-        placeholder: "Escribe tu fórmula...",
-        correctAnswer: ["=CONCATENAR(A5,B5)", "=CONCATENAR(A5;B5)", "=concatenar(a5,b5)", "=concatenar(a5;b5)", "=CONCATENAR(A5, B5)"],
-        xpReward: 300
+        challenges: [
+            {
+                instruction: "Escribe la función exacta para concatenar las celdas A5 y B5:",
+                type: "input",
+                placeholder: "Escribe tu fórmula...",
+                correctAnswer: ["=CONCATENAR(A5,B5)", "=CONCATENAR(A5;B5)", "=concatenar(a5,b5)", "=concatenar(a5;b5)", "=CONCATENAR(A5, B5)"],
+                xpReward: 200
+            }
+        ]
     },
     {
         id: 9,
-        title: "Lección 9: Viaje en el Tiempo",
-        badge: "📅",
+        title: "Misión 9: Viaje en el Tiempo",
         theory: `
             <h3>Fechas Dinámicas</h3>
             <p>Si quieres que un reporte siempre muestre la fecha o la hora del día en que se abre, no la escribas a mano.</p>
@@ -180,19 +222,22 @@ const levelsData = [
                 <li><code>=AHORA()</code>: Muestra la fecha y la hora exactas de este momento.</li>
             </ul>
         `,
-        instruction: "Escribe la función exacta (con paréntesis vacíos) que te devuelve la fecha de hoy:",
-        type: "input",
-        placeholder: "Ej: =AHORA()",
-        correctAnswer: ["=HOY()", "=hoy()"],
-        xpReward: 350
+        challenges: [
+            {
+                instruction: "Escribe la función exacta (con paréntesis vacíos) que te devuelve la fecha de hoy:",
+                type: "input",
+                placeholder: "Ej: =AHORA()",
+                correctAnswer: ["=HOY()", "=hoy()"],
+                xpReward: 250
+            }
+        ]
     },
     {
         id: 10,
-        title: "Lección 10: Atajos de Maestro",
-        badge: "⚡",
+        title: "Misión 10: Atajos de Maestro",
         theory: `
             <h3>Atajos de Teclado (Shortcuts)</h3>
-            <p>Los profesionales no usan tanto el mouse, usan el teclado:</p>
+            <p>Los verdaderos maestros no usan tanto el mouse, usan el teclado:</p>
             <ul>
                 <li><strong>Ctrl + C:</strong> Copiar</li>
                 <li><strong>Ctrl + V:</strong> Pegar</li>
@@ -200,15 +245,19 @@ const levelsData = [
                 <li><strong>F4:</strong> Fija una celda en una fórmula (convierte <code>A1</code> en <code>$A$1</code>).</li>
             </ul>
         `,
-        instruction: "¿Qué combinación de teclas usas para deshacer un error si borraste algo por accidente?",
-        type: "radio",
-        options: [
-            { id: "opt1", text: "Ctrl + C" },
-            { id: "opt2", text: "Ctrl + Z" },
-            { id: "opt3", text: "F4" }
-        ],
-        correctAnswer: "opt2",
-        xpReward: 400
+        challenges: [
+            {
+                instruction: "¿Qué combinación de teclas usas para deshacer un error si borraste algo por accidente?",
+                type: "radio",
+                options: [
+                    { id: "opt1", text: "Ctrl + C" },
+                    { id: "opt2", text: "Ctrl + Z" },
+                    { id: "opt3", text: "F4" }
+                ],
+                correctAnswer: "opt2",
+                xpReward: 300
+            }
+        ]
     }
 ];
 
@@ -219,6 +268,9 @@ let state = {
     unlockedLevel: 1
 };
 
+let currentLevel = null;
+let currentChallengeIndex = 0;
+
 // Elementos del DOM
 const views = {
     landing: document.getElementById('landing-page'),
@@ -227,7 +279,6 @@ const views = {
 
 const hud = {
     xp: document.getElementById('xp-counter'),
-    badges: document.getElementById('badges-container'),
     progress: document.getElementById('overall-progress')
 };
 
@@ -235,40 +286,109 @@ const elements = {
     btnStart: document.getElementById('btn-start'),
     btnBack: document.getElementById('btn-back'),
     btnSubmit: document.getElementById('btn-submit'),
-    btnNext: document.getElementById('btn-next-level'),
+    btnNextChallenge: document.getElementById('btn-next-challenge'),
+    btnNextLevel: document.getElementById('btn-next-level'),
     btnReset: document.getElementById('btn-reset'),
     
-    levelsGrid: document.getElementById('levels-grid'),
+    mapPath: document.getElementById('map-path'),
     
-    // Contenedores de pasos
     theoryStep: document.getElementById('theory-step'),
     practiceStep: document.getElementById('practice-step'),
     
-    // Elementos internos
     theoryContent: document.getElementById('theory-content'),
-    practiceArea: document.getElementById('interactive-area'),
-    feedbackMsg: document.getElementById('feedback-message'),
+    challengeCounter: document.getElementById('challenge-counter'),
     instruction: document.getElementById('practice-instruction'),
     currentTitle: document.getElementById('current-level-title'),
-    currentBadge: document.getElementById('current-level-badge'),
+    challengeProgress: document.getElementById('challenge-progress'),
     
-    // Botones de pasos
     btnGoPractice: document.getElementById('btn-go-practice'),
-    btnBackTheory: document.getElementById('btn-back-theory')
+    btnBackTheory: document.getElementById('btn-back-theory'),
+    
+    excelSimulator: document.getElementById('excel-simulator'),
+    simulatorGrid: document.getElementById('simulator-grid'),
+    dynamicInteraction: document.getElementById('dynamic-interaction'),
+    feedbackMsg: document.getElementById('feedback-message')
 };
 
-let currentPlayingLevel = null;
+// Generar grilla del simulador (5 columnas A-E, 5 filas 1-5)
+function buildSimulator() {
+    elements.simulatorGrid.innerHTML = '';
+    elements.simulatorGrid.style.gridTemplateColumns = '40px repeat(5, 1fr)';
+    
+    // Esquina superior izquierda vacía
+    const corner = document.createElement('div');
+    corner.className = 'excel-cell excel-header';
+    elements.simulatorGrid.appendChild(corner);
+    
+    // Cabeceras de columnas (A-E)
+    const cols = ['A', 'B', 'C', 'D', 'E'];
+    cols.forEach(col => {
+        const header = document.createElement('div');
+        header.className = 'excel-cell excel-header';
+        header.textContent = col;
+        elements.simulatorGrid.appendChild(header);
+    });
+    
+    // Filas (1-5) con celdas
+    for (let r = 1; r <= 5; r++) {
+        // Cabecera de fila
+        const rowHeader = document.createElement('div');
+        rowHeader.className = 'excel-cell excel-header';
+        rowHeader.textContent = r;
+        elements.simulatorGrid.appendChild(rowHeader);
+        
+        // Celdas
+        cols.forEach(col => {
+            const cell = document.createElement('div');
+            cell.className = 'excel-cell';
+            cell.dataset.ui = `${col}${r}`; // ej. A1, B2
+            
+            // Interaction click
+            cell.addEventListener('click', () => {
+                // Actualizar name-box visualmente
+                document.getElementById('sim-name-box').textContent = cell.dataset.ui;
+                // Si es reto de tipo click_cell
+                handleUIClick(cell.dataset.ui);
+            });
+            
+            elements.simulatorGrid.appendChild(cell);
+        });
+    }
 
-// Inicialización
+    // Agregar listeners a otros elementos de UI
+    document.querySelectorAll('[data-ui]').forEach(el => {
+        if (!el.classList.contains('excel-cell')) {
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                handleUIClick(el.dataset.ui);
+            });
+        }
+    });
+}
+
+function handleUIClick(uiName) {
+    if (!currentLevel) return;
+    const challenge = currentLevel.challenges[currentChallengeIndex];
+    if (challenge.type === 'click_cell' || challenge.type === 'click_ui') {
+        if (uiName === challenge.targetUI) {
+            checkAnswer(true); // Forced correct
+        } else {
+            showFeedback(false, "Incorrecto. Hiciste clic en el lugar equivocado.");
+            elements.feedbackMsg.classList.remove('hidden');
+        }
+    }
+}
+
 function init() {
     loadProgress();
+    buildSimulator();
     renderMap();
     updateHUD();
     setupEventListeners();
 }
 
 function loadProgress() {
-    const saved = localStorage.getItem('excelProData');
+    const saved = localStorage.getItem('excelQuestData');
     if (saved) {
         state = JSON.parse(saved);
     } else {
@@ -277,64 +397,47 @@ function loadProgress() {
 }
 
 function saveProgress() {
-    localStorage.setItem('excelProData', JSON.stringify(state));
+    localStorage.setItem('excelQuestData', JSON.stringify(state));
 }
 
 function updateHUD() {
     hud.xp.textContent = `${state.xp} XP`;
-    
-    const totalLevels = levelsData.length;
-    const progressPercent = (state.completedLevels.length / totalLevels) * 100;
+    const progressPercent = (state.completedLevels.length / levelsData.length) * 100;
     hud.progress.style.width = `${progressPercent}%`;
-
-    hud.badges.innerHTML = '';
-    levelsData.forEach(lvl => {
-        const isEarned = state.completedLevels.includes(lvl.id);
-        const badgeEl = document.createElement('span');
-        badgeEl.className = `badge ${isEarned ? 'earned' : ''}`;
-        badgeEl.textContent = lvl.badge;
-        badgeEl.title = isEarned ? lvl.title : 'Lección bloqueada';
-        hud.badges.appendChild(badgeEl);
-    });
 }
 
 function renderMap() {
-    elements.levelsGrid.innerHTML = '';
+    elements.mapPath.innerHTML = '';
     
     levelsData.forEach(lvl => {
         const isUnlocked = lvl.id <= state.unlockedLevel;
         const isCompleted = state.completedLevels.includes(lvl.id);
         
-        const card = document.createElement('div');
+        let nodeClass = 'locked';
+        if (isCompleted) nodeClass = 'completed';
+        else if (isUnlocked) nodeClass = 'unlocked';
         
-        let statusClass = 'locked';
-        let statusIcon = '🔒';
+        const node = document.createElement('div');
+        node.className = `map-node ${nodeClass}`;
         
-        if (isCompleted) {
-            statusClass = 'completed';
-            statusIcon = '✅';
-        } else if (isUnlocked) {
-            statusClass = 'unlocked';
-            statusIcon = '▶️';
-        }
-
-        card.className = `level-card ${statusClass}`;
-        card.innerHTML = `
-            <span class="level-number">Lección ${lvl.id}</span>
-            <h4>${lvl.title.split(': ')[1]}</h4>
-            <div class="level-status">${statusIcon}</div>
+        node.innerHTML = `
+            <div class="map-dot"></div>
+            <div class="map-card" ${isUnlocked ? 'role="button" tabindex="0"' : ''}>
+                <div class="level-number">Misión ${lvl.id}</div>
+                <h4>${lvl.title.split(': ')[1]}</h4>
+            </div>
         `;
 
         if (isUnlocked) {
-            card.addEventListener('click', () => startLevel(lvl.id));
+            node.querySelector('.map-card').addEventListener('click', () => startLevel(lvl.id));
         }
 
-        elements.levelsGrid.appendChild(card);
+        elements.mapPath.appendChild(node);
     });
 }
 
 function switchView(viewName) {
-    Object.values(views).forEach(v => v.classList.remove('active'));
+    Object.values(views).forEach(v => v.classList.remove('active', 'hidden'));
     Object.values(views).forEach(v => v.classList.add('hidden'));
     
     views[viewName].classList.remove('hidden');
@@ -343,41 +446,28 @@ function switchView(viewName) {
 
 function showStep(stepName) {
     if (stepName === 'theory') {
-        elements.practiceStep.classList.remove('active', 'slide-out-left');
+        elements.practiceStep.classList.remove('active');
         elements.practiceStep.classList.add('hidden');
-        
-        elements.theoryStep.classList.remove('hidden', 'slide-out-left');
+        elements.theoryStep.classList.remove('hidden');
         elements.theoryStep.classList.add('active');
     } else if (stepName === 'practice') {
-        // Animación de salida para la teoría
         elements.theoryStep.classList.remove('active');
-        elements.theoryStep.classList.add('slide-out-left');
-        
-        setTimeout(() => {
-            elements.theoryStep.classList.add('hidden');
-            elements.theoryStep.classList.remove('slide-out-left');
-            
-            elements.practiceStep.classList.remove('hidden', 'slide-out-left');
-            elements.practiceStep.classList.add('active');
-            
-            // Focar input si existe
-            const input = document.getElementById('levelAnswerInput');
-            if(input) input.focus();
-        }, 350); // Tiempo que coincida aprox con la animación CSS
+        elements.theoryStep.classList.add('hidden');
+        elements.practiceStep.classList.remove('hidden');
+        elements.practiceStep.classList.add('active');
     }
 }
 
 function setupEventListeners() {
     elements.btnStart.addEventListener('click', () => {
-        let nextLevel = 1;
+        let next = 1;
         for (let i = 1; i <= levelsData.length; i++) {
             if (!state.completedLevels.includes(i)) {
-                nextLevel = i;
-                break;
+                next = i; break;
             }
         }
-        if (nextLevel > state.unlockedLevel) nextLevel = state.unlockedLevel;
-        startLevel(nextLevel);
+        if (next > state.unlockedLevel) next = state.unlockedLevel;
+        startLevel(next);
     });
 
     elements.btnBack.addEventListener('click', () => {
@@ -385,89 +475,114 @@ function setupEventListeners() {
         renderMap();
     });
 
-    elements.btnGoPractice.addEventListener('click', () => {
-        showStep('practice');
-    });
+    elements.btnGoPractice.addEventListener('click', () => showStep('practice'));
+    elements.btnBackTheory.addEventListener('click', () => showStep('theory'));
 
-    elements.btnBackTheory.addEventListener('click', () => {
-        showStep('theory');
-    });
-
-    elements.btnSubmit.addEventListener('click', checkAnswer);
+    elements.btnSubmit.addEventListener('click', () => checkAnswer(false));
     
-    elements.btnNext.addEventListener('click', () => {
-        if (currentPlayingLevel.id < levelsData.length) {
-            startLevel(currentPlayingLevel.id + 1);
-        } else {
-            alert('¡Felicidades! Eres oficialmente un Maestro de Excel.');
-            switchView('landing');
-            renderMap();
-        }
+    elements.btnNextChallenge.addEventListener('click', () => {
+        currentChallengeIndex++;
+        loadChallenge();
+    });
+    
+    elements.btnNextLevel.addEventListener('click', () => {
+        switchView('landing');
+        renderMap();
     });
 
     elements.btnReset.addEventListener('click', () => {
-        if (confirm('¿Estás seguro de que deseas reiniciar todo tu progreso? Perderás tus XP e insignias.')) {
+        if (confirm('¿Estás seguro de que deseas reiniciar tu viaje? Perderás toda tu XP y progreso.')) {
             state = { xp: 0, completedLevels: [], unlockedLevel: 1 };
             saveProgress();
             updateHUD();
             renderMap();
-            switchView('landing');
         }
     });
 }
 
 function startLevel(levelId) {
-    const levelData = levelsData.find(l => l.id === levelId);
-    if (!levelData) return;
+    const data = levelsData.find(l => l.id === levelId);
+    if (!data) return;
 
-    currentPlayingLevel = levelData;
+    currentLevel = data;
+    currentChallengeIndex = 0;
     
-    // Configurar encabezado
-    elements.currentTitle.textContent = levelData.title;
-    elements.currentBadge.textContent = levelData.badge;
+    elements.currentTitle.textContent = data.title;
+    elements.theoryContent.innerHTML = data.theory;
     
-    // Configurar teoría
-    elements.theoryContent.innerHTML = levelData.theory;
-    
-    // Configurar práctica
-    elements.instruction.textContent = levelData.instruction;
-    elements.practiceArea.innerHTML = '';
-    
-    if (levelData.type === 'radio') {
-        const radioGroup = document.createElement('div');
-        radioGroup.className = 'radio-group';
-        
-        levelData.options.forEach(opt => {
-            const label = document.createElement('label');
-            label.className = 'radio-option';
-            label.innerHTML = `
-                <input type="radio" name="levelAnswer" value="${opt.id}">
-                <span>${opt.text}</span>
-            `;
-            radioGroup.appendChild(label);
-        });
-        elements.practiceArea.appendChild(radioGroup);
-    } else if (levelData.type === 'input') {
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.id = 'levelAnswerInput';
-        input.placeholder = levelData.placeholder;
-        input.autocomplete = 'off';
-        
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') checkAnswer();
-        });
-        
-        elements.practiceArea.appendChild(input);
-    }
-
-    // Resetear feedback y botones
-    elements.feedbackMsg.className = 'feedback hidden';
-    elements.btnSubmit.classList.remove('hidden');
-    elements.btnNext.classList.add('hidden');
-    
+    loadChallenge();
     switchView('level');
     showStep('theory');
+}
+
+function renderChallengeProgress() {
+    elements.challengeProgress.innerHTML = '';
+    currentLevel.challenges.forEach((ch, idx) => {
+        const dot = document.createElement('div');
+        dot.className = 'challenge-dot';
+        if (idx < currentChallengeIndex) dot.classList.add('done');
+        else if (idx === currentChallengeIndex) dot.classList.add('active');
+        elements.challengeProgress.appendChild(dot);
+    });
+}
+
+function loadChallenge() {
+    renderChallengeProgress();
+    
+    const challenge = currentLevel.challenges[currentChallengeIndex];
+    elements.challengeCounter.textContent = `Reto ${currentChallengeIndex + 1}/${currentLevel.challenges.length}`;
+    elements.instruction.textContent = challenge.instruction;
+    
+    // Limpiar UI anterior
+    elements.dynamicInteraction.innerHTML = '';
+    elements.excelSimulator.classList.add('hidden');
+    elements.feedbackMsg.classList.add('hidden');
+    elements.btnSubmit.classList.add('hidden');
+    elements.btnNextChallenge.classList.add('hidden');
+    elements.btnNextLevel.classList.add('hidden');
+    
+    // Remover clases de highlight interactivas previas
+    document.querySelectorAll('.sim-interactive').forEach(el => el.classList.remove('sim-interactive'));
+
+    if (challenge.type === 'click_cell' || challenge.type === 'click_ui') {
+        // Mostrar simulador
+        elements.excelSimulator.classList.remove('hidden');
+        
+        // Poner clase hover al target para que brille cuando el mouse pasa (guiño visual sutil)
+        const targetEl = document.querySelector(`[data-ui="${challenge.targetUI}"]`);
+        if(targetEl) targetEl.classList.add('sim-interactive');
+        
+    } else if (challenge.type === 'radio') {
+        const div = document.createElement('div');
+        div.className = 'radio-group';
+        challenge.options.forEach(opt => {
+            const label = document.createElement('label');
+            label.className = 'radio-option';
+            label.innerHTML = `<input type="radio" name="chAnswer" value="${opt.id}"><span>${opt.text}</span>`;
+            div.appendChild(label);
+        });
+        elements.dynamicInteraction.appendChild(div);
+        elements.btnSubmit.classList.remove('hidden');
+        
+    } else if (challenge.type === 'input') {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = 'chAnswerInput';
+        input.placeholder = challenge.placeholder;
+        input.autocomplete = 'off';
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkAnswer(false);
+        });
+        
+        const div = document.createElement('div');
+        div.className = 'input-group';
+        div.appendChild(input);
+        
+        elements.dynamicInteraction.appendChild(div);
+        elements.btnSubmit.classList.remove('hidden');
+        
+        setTimeout(() => input.focus(), 100);
+    }
 }
 
 function showFeedback(isCorrect, message) {
@@ -475,70 +590,52 @@ function showFeedback(isCorrect, message) {
     elements.feedbackMsg.className = `feedback ${isCorrect ? 'success' : 'error'}`;
 }
 
-function checkAnswer() {
-    if (!currentPlayingLevel) return;
-    
-    let isCorrect = false;
+function checkAnswer(isForcedCorrect = false) {
+    const challenge = currentLevel.challenges[currentChallengeIndex];
+    let isCorrect = isForcedCorrect;
     let userAnswer = '';
     
-    if (currentPlayingLevel.type === 'radio') {
-        const selected = document.querySelector('input[name="levelAnswer"]:checked');
-        if (!selected) {
-            showFeedback(false, 'Por favor, selecciona una opción.');
-            return;
+    if (!isForcedCorrect) {
+        if (challenge.type === 'radio') {
+            const selected = document.querySelector('input[name="chAnswer"]:checked');
+            if (!selected) return showFeedback(false, 'Por favor, selecciona una opción.');
+            isCorrect = (selected.value === challenge.correctAnswer);
+        } else if (challenge.type === 'input') {
+            const inputEl = document.getElementById('chAnswerInput');
+            userAnswer = inputEl.value.trim().replace(/\s+/g, '').toLowerCase();
+            if (!userAnswer) return showFeedback(false, 'Por favor, escribe una respuesta.');
+            isCorrect = challenge.correctAnswer.some(ans => ans.replace(/\s+/g, '').toLowerCase() === userAnswer);
         }
-        userAnswer = selected.value;
-        isCorrect = (userAnswer === currentPlayingLevel.correctAnswer);
-    } else if (currentPlayingLevel.type === 'input') {
-        const inputEl = document.getElementById('levelAnswerInput');
-        userAnswer = inputEl.value.trim().replace(/\s+/g, ''); 
-        
-        if (!userAnswer) {
-            showFeedback(false, 'Por favor, escribe una respuesta.');
-            return;
-        }
-        
-        isCorrect = currentPlayingLevel.correctAnswer.some(ans => 
-            ans.replace(/\s+/g, '').toLowerCase() === userAnswer.toLowerCase()
-        );
     }
 
     if (isCorrect) {
-        showFeedback(true, '¡Correcto! Excelente trabajo.');
-        elements.btnSubmit.classList.add('hidden');
+        showFeedback(true, '¡Victoria! Has superado este reto.');
+        if (elements.btnSubmit) elements.btnSubmit.classList.add('hidden');
         
-        // Ganar recompensa
-        if (!state.completedLevels.includes(currentPlayingLevel.id)) {
-            state.completedLevels.push(currentPlayingLevel.id);
-            state.xp += currentPlayingLevel.xpReward;
+        // Sumar XP
+        state.xp += challenge.xpReward;
+        
+        // Es el último reto del nivel?
+        if (currentChallengeIndex === currentLevel.challenges.length - 1) {
+            elements.btnNextLevel.classList.remove('hidden');
             
-            if (state.unlockedLevel === currentPlayingLevel.id && currentPlayingLevel.id < levelsData.length) {
-                state.unlockedLevel++;
+            // Nivel completado!
+            if (!state.completedLevels.includes(currentLevel.id)) {
+                state.completedLevels.push(currentLevel.id);
+                if (state.unlockedLevel === currentLevel.id && currentLevel.id < levelsData.length) {
+                    state.unlockedLevel++;
+                }
             }
-            
-            saveProgress();
-            updateHUD();
-            
-            setTimeout(() => {
-                const badgeEarnedMsg = document.createElement('div');
-                badgeEarnedMsg.style.cssText = "position:fixed; top:20px; right:20px; background:var(--primary-color); color:white; padding:15px; border-radius:8px; z-index:1000; box-shadow:0 4px 6px rgba(0,0,0,0.3); animation:fadeIn 0.5s; font-weight:bold;";
-                badgeEarnedMsg.innerHTML = `🎉 ¡Ganaste ${currentPlayingLevel.xpReward} XP y la insignia ${currentPlayingLevel.badge}!`;
-                document.body.appendChild(badgeEarnedMsg);
-                setTimeout(() => badgeEarnedMsg.remove(), 3500);
-            }, 500);
+        } else {
+            // Faltan retos en este nivel
+            elements.btnNextChallenge.classList.remove('hidden');
         }
         
-        if (currentPlayingLevel.id < levelsData.length) {
-            elements.btnNext.classList.remove('hidden');
-        } else {
-            elements.btnNext.classList.remove('hidden');
-            elements.btnNext.textContent = '¡Ver resultados finales!';
-        }
+        saveProgress();
+        updateHUD();
         
     } else {
-        showFeedback(false, 'Incorrecto. Revisa la teoría e inténtalo de nuevo.');
-        elements.btnSubmit.style.animation = 'none';
-        setTimeout(() => elements.btnSubmit.style.animation = 'shake 0.4s', 10);
+        showFeedback(false, 'Ataque fallido. Revisa la teoría e inténtalo de nuevo.');
     }
 }
 

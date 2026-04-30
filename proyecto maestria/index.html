@@ -3,96 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprende Excel desde Cero - Nivel Pro</title>
-    <meta name="description" content="Plataforma interactiva y gamificada para aprender Microsoft Excel desde cero.">
+    <title>ExcelQuest - El Dominio de la Hoja de Cálculo</title>
+    <meta name="description" content="Aventura interactiva RPG para aprender Microsoft Excel desde cero.">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="navbar">
         <div class="logo">
-            <span class="icon">📊</span>
-            <h1>ExcelPro</h1>
+            <span class="icon">⚔️</span>
+            <h1>ExcelQuest</h1>
         </div>
         <div class="gamification-hud">
             <div class="xp-container">
-                <span class="xp-icon">⭐</span>
+                <span class="xp-icon">✨</span>
                 <span id="xp-counter">0 XP</span>
             </div>
-            <div class="badges-container" id="badges-container">
-                <!-- Badges will be injected here -->
-            </div>
-            <button id="btn-reset" class="btn-secondary btn-small">Reiniciar Progreso</button>
+            <button id="btn-reset" class="btn-secondary btn-small">Reiniciar Viaje</button>
         </div>
     </header>
 
+    <div class="progress-bar-container header-progress">
+        <div class="progress-bar" id="overall-progress"></div>
+    </div>
+
     <main class="container">
-        <!-- Landing Page Section -->
+        <!-- Landing / Map Section -->
         <section id="landing-page" class="view active">
             <div class="hero">
                 <div class="hero-content">
-                    <h2>Domina Excel como un <span class="highlight">Profesional</span></h2>
-                    <p>Aprende paso a paso con 10 lecciones interactivas, gana puntos y desbloquea niveles. ¡Desde lo más básico hasta atajos avanzados!</p>
-                    <button id="btn-start" class="btn-primary btn-large">¡Comenzar a Aprender!</button>
-                </div>
-                <div class="hero-image">
-                    <div class="excel-mockup">
-                        <div class="mockup-header">Libro1 - Excel</div>
-                        <div class="mockup-cells">
-                            <div class="cell header">A</div><div class="cell header">B</div><div class="cell header">C</div>
-                            <div class="cell">1</div><div class="cell">Datos</div><div class="cell">100</div>
-                            <div class="cell">2</div><div class="cell">Suma</div><div class="cell highlight-cell">=SUMA(C1:C2)</div>
-                        </div>
-                    </div>
+                    <h2>Forja tu leyenda en <span class="highlight">Excel</span></h2>
+                    <p>Adéntrate en los Reinos de los Datos. Resuelve acertijos y domina las hojas de cálculo completando las 10 misiones épicas.</p>
+                    <button id="btn-start" class="btn-primary btn-large">⚔️ Iniciar Aventura</button>
                 </div>
             </div>
             
             <div class="level-map">
-                <h3>Tu Ruta de Aprendizaje (10 Lecciones)</h3>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="overall-progress"></div>
-                </div>
-                <div class="levels-grid" id="levels-grid">
-                    <!-- Level cards will be injected here -->
+                <h3>El Mapa de los Reinos</h3>
+                
+                <div class="map-path" id="map-path">
+                    <!-- Nodos verticales del mapa inyectados aquí -->
                 </div>
             </div>
         </section>
 
         <!-- Active Level Section -->
         <section id="level-page" class="view hidden">
-            <button id="btn-back" class="btn-text">← Volver al mapa</button>
+            <button id="btn-back" class="btn-text">← Abandonar Misión</button>
             <div class="level-container">
                 <div class="level-header">
-                    <h2 id="current-level-title">Nivel 1</h2>
-                    <span class="level-badge" id="current-level-badge">🏆</span>
+                    <h2 id="current-level-title">Misión 1</h2>
+                    <div class="challenge-progress" id="challenge-progress">
+                        <!-- Puntos de progreso de los retos -->
+                    </div>
                 </div>
                 
-                <!-- Paso 1: Teoría -->
+                <!-- Paso 1: Teoría / Sabiduría -->
                 <div id="theory-step" class="step-view active">
                     <div class="theory-box" id="theory-content">
                         <!-- Theory content injected here -->
                     </div>
                     <div class="step-actions">
                         <button id="btn-go-practice" class="btn-primary btn-large step-transition-btn">
-                            ¡Entendido! Ir a la Práctica →
+                            Aceptar el Reto →
                         </button>
                     </div>
                 </div>
 
-                <!-- Paso 2: Práctica -->
+                <!-- Paso 2: Práctica / Batalla interactiva -->
                 <div id="practice-step" class="step-view hidden">
                     <div class="practice-box">
                         <div class="practice-header">
-                            <h3>¡Hora de practicar!</h3>
-                            <button id="btn-back-theory" class="btn-text btn-small">← Repasar Teoría</button>
+                            <h3><span id="challenge-counter">Reto 1/3</span></h3>
+                            <button id="btn-back-theory" class="btn-text btn-small">← Leer Pergamino (Teoría)</button>
                         </div>
-                        <p id="practice-instruction">Instrucciones aquí</p>
+                        
+                        <p id="practice-instruction" class="quest-instruction">Instrucciones aquí</p>
+                        
                         <div class="interactive-area" id="interactive-area">
-                            <!-- Practice inputs injected here -->
+                            <!-- El Simulador de Excel (Visible en ciertos retos) -->
+                            <div class="excel-simulator hidden" id="excel-simulator">
+                                <div class="excel-ribbon" data-ui="ribbon">
+                                    <div class="ribbon-tabs">
+                                        <span class="tab active" data-ui="tab-home">Inicio</span>
+                                        <span class="tab" data-ui="tab-insert">Insertar</span>
+                                        <span class="tab" data-ui="tab-formulas">Fórmulas</span>
+                                    </div>
+                                    <div class="ribbon-tools">
+                                        <button class="tool-btn" data-ui="btn-bold">B</button>
+                                        <button class="tool-btn" data-ui="btn-italic">I</button>
+                                        <button class="tool-btn" data-ui="btn-underline">U</button>
+                                    </div>
+                                </div>
+                                <div class="excel-formula-bar" data-ui="formula-bar-container">
+                                    <div class="name-box" id="sim-name-box" data-ui="name-box">A1</div>
+                                    <div class="fx-icon">fx</div>
+                                    <div class="formula-input" id="sim-formula-input" data-ui="formula-input"></div>
+                                </div>
+                                <div class="excel-grid" id="simulator-grid">
+                                    <!-- Inyectado por JS -->
+                                </div>
+                            </div>
+
+                            <!-- Opciones múltiples o input texto -->
+                            <div id="dynamic-interaction"></div>
                         </div>
+                        
                         <div class="feedback hidden" id="feedback-message"></div>
-                        <button id="btn-submit" class="btn-primary">Verificar Respuesta</button>
-                        <button id="btn-next-level" class="btn-success hidden">Siguiente Lección →</button>
+                        <button id="btn-submit" class="btn-primary hidden">Verificar Respuesta</button>
+                        <button id="btn-next-challenge" class="btn-success hidden">Siguiente Reto →</button>
+                        <button id="btn-next-level" class="btn-warning hidden">¡Misión Cumplida! Volver al mapa →</button>
                     </div>
                 </div>
             </div>
@@ -100,7 +120,7 @@
     </main>
 
     <footer>
-        <p>Desarrollado con ♥ para aprender Excel | Proyecto Educativo Gamificado</p>
+        <p>ExcelQuest | Forjado en los Reinos Digitales | Proyecto Educativo Gamificado</p>
     </footer>
 
     <script src="script.js"></script>
